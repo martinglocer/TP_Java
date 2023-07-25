@@ -6,4 +6,5 @@
  *
  */
 module Boliche_java {
+	requires java.sql;
 }
