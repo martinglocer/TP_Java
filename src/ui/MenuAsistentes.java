@@ -8,7 +8,7 @@ import java.util.Scanner;
 import entities.*;
 import logic.Login;
 
-public class Menu {
+public class MenuAsistentes {
 	Scanner s=null;
 	Login ctrlLogin = new Login();
 	
@@ -16,9 +16,6 @@ public class Menu {
 
 	public void start() {
 		s = new Scanner(System.in);
-		Asistente a= login();
-		System.out.println("Bienvenido "+a.getNombre()+" "+a.getApellido());
-		System.out.println();
 		
 		String command;
 		do {
@@ -33,9 +30,8 @@ public class Menu {
 
 	private void executeCommand(String command) {
 		switch (command) {
-		case "Asistentes":
-			MenuAsistentes ma = new MenuAsistentes();
-			ma.start();
+		case "list":
+			System.out.println(ctrlLogin.getAll());
 			break;
 		case "find":
 			System.out.println(find());
@@ -58,32 +54,30 @@ public class Menu {
 	}
 
 	private String getCommand() {
-		System.out.println("Ingrese a la sección que desea: ");
-		System.out.println("Asistentes");
-		System.out.println("Fiestas"); 
-		System.out.println("Lugares"); 
-		System.out.println("Bebidas");
+		System.out.println("Ingrese el comando según la opción que desee realizar");
+		System.out.println("list\t\tlistar todos");
+		System.out.println("find\t\tbuscar por tipo y nro de documento"); //solo debe devolver 1
+		System.out.println("search\t\tlistar por apellido"); //puede devolver varios
+		System.out.println("new\t\tcrea una nueva persona y asigna un rol existente");
+		System.out.println("edit\t\tbusca por tipo y nro de documento y actualiza todos los datos");
+		System.out.println("delete\t\tborra por tipo y nro de documento");
 		System.out.println();
 		System.out.print("comando: ");
 		return s.nextLine();
 	}
 	
-	public Asistente login() {
-		Asistente p=new Asistente();
-		
-		System.out.print("Email: ");
-		p.setEmail(s.nextLine());
+	
+	private Asistente find() {
+		System.out.println();
+		Asistente a=new Asistente();
+		System.out.print("Tipo doc: ");
+		a.setTipo_doc(s.nextLine());
 
-		System.out.print("password: ");
-		p.setPassword(s.nextLine());
+		System.out.print("Nro doc: ");
+		a.setNro_doc(Integer.parseInt(s.nextLine()));
 		
-		p=ctrlLogin.validate(p);
-		
-		return p;
-		
+		return ctrlLogin.getByDocumento(a);
 	}
-	
-	
 	
 	private Asistente getByUser() {
 		System.out.println();

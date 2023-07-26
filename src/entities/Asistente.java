@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -10,10 +11,15 @@ public class Asistente {
 	private String nombre;
 	private String apellido;
 	private String email;
-	private Date fecha_nacimiento;
+	private LocalDate fecha_nacimiento;
 	private String celular;
 	private float saldo;
 	private String password;
+
+	
+	
+	private String dateFormat = "dd/MM/yyyy";
+	
 	
 	public String getTipo_doc() {
 		return tipo_doc;
@@ -45,12 +51,15 @@ public class Asistente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getFecha_nacimiento() {
+	
+	
+	public LocalDate getFecha_nacimiento() {
 		return fecha_nacimiento;
 	}
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
+	public void setFecha_nacimiento(LocalDate fecha_nac) {
+		this.fecha_nacimiento = fecha_nac;
 	}
+	
 	public String getCelular() {
 		return celular;
 	}
