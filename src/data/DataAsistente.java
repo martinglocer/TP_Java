@@ -218,9 +218,9 @@ public class DataAsistente {
                 DbConnector.getInstancia().releaseConn();
                 } catch (SQLException e) {
                     e.printStackTrace();
-                }
+                	}
+            	}
             }
-        }
-
+        }
 	
 }
