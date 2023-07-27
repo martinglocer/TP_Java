@@ -38,7 +38,7 @@ public class Menu {
 			ma.start();
 			break;
 		case "find":
-			System.out.println(find());
+			//System.out.println(find());
 			break;
 		case "search":
 			System.out.println(getByUser());

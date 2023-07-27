@@ -4,6 +4,7 @@ import entities.*;
 //import java.time.*;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class DataAsistente {
@@ -26,7 +27,7 @@ public class DataAsistente {
 					a.setNombre(rs.getString("nombre"));
 					a.setApellido(rs.getString("apellido"));
 					a.setEmail(rs.getString("email"));
-					a.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+					a.setFecha_nacimiento(rs.getObject("fecha_nacimiento", LocalDate.class));
 					a.setCelular(rs.getString("celular"));
 					a.setSaldo(rs.getFloat("saldo"));
 					a.setPassword(rs.getString("password"));
@@ -71,7 +72,7 @@ public class DataAsistente {
 				a.setNombre(rs.getString("nombre"));
 				a.setApellido(rs.getString("apellido"));
 				a.setEmail(rs.getString("email"));
-				a.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+				a.setFecha_nacimiento(rs.getObject("fecha_nacimiento", LocalDate.class));
 				a.setCelular(rs.getString("celular"));
 				a.setSaldo(rs.getFloat("saldo"));
 				a.setPassword(rs.getString("password"));
@@ -111,7 +112,7 @@ public class DataAsistente {
 				a.setNombre(rs.getString("nombre"));
 				a.setApellido(rs.getString("apellido"));
 				a.setEmail(rs.getString("email"));
-				a.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+				a.setFecha_nacimiento(rs.getObject("fecha_nacimiento", LocalDate.class));
 				a.setCelular(rs.getString("celular"));
 				a.setSaldo(rs.getFloat("saldo"));
 				a.setPassword(rs.getString("password"));
@@ -145,7 +146,7 @@ public class DataAsistente {
 			stmt.setString(3, a.getNombre());
 			stmt.setString(4, a.getApellido());
 			stmt.setString(5, a.getEmail());
-			stmt.setDate(6, (Date) a.getFecha_nacimiento());
+			stmt.setObject(6, a.getFecha_nacimiento());
 			stmt.setString(7, a.getCelular());
 			stmt.setString(8, a.getPassword());
 			stmt.executeUpdate();
@@ -175,7 +176,7 @@ public class DataAsistente {
 			stmt.setString(3, asi.getEmail());
 			stmt.setString(4, asi.getPassword());
 			stmt.setString(5, asi.getCelular());
-			stmt.setDate(6, (Date) asi.getFecha_nacimiento());
+			stmt.setObject(6, asi.getFecha_nacimiento());
 			stmt.setString(7, asi.getTipo_doc());
 			stmt.setInt(8, asi.getNro_doc());
 			stmt.setString(9, asi.getTipo_doc());
@@ -197,8 +198,8 @@ public class DataAsistente {
         }
     }
 
-	public void deleteByDoc(Asistente delAsi) {
-        PreparedStatement stmt = null;
+	public void deleteByDoc(Asistente delAsi) { 
+		PreparedStatement stmt = null;
 
         try {
         stmt = DbConnector.getInstancia().getConn().prepareStatement("delete from persona where tipo_doc=? and nro_doc=?");
@@ -220,7 +221,7 @@ public class DataAsistente {
                     e.printStackTrace();
                 	}
             	}
-            }
+         	}
         }
 	
 }
