@@ -83,7 +83,8 @@ public class Asistente {
 	public String toString() {
 		return "Assistant [tipo_doc=" + tipo_doc + ", nro_doc=" + nro_doc + ", nombre=" + nombre + ", apellido="
 				+ apellido + ", email=" + email + ", fecha_nacimiento=" + fecha_nacimiento + ", celular=" + celular
-				+ ", saldo=" + saldo + ", password=" + password + "]";
+				+ ", saldo=" + saldo + ", password=" + password + "]";
+				
 	}
 	
 	
