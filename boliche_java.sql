@@ -31,7 +31,10 @@ CREATE TABLE `asistente` (
   `celular` varchar(20) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   `saldo` float DEFAULT '0',
+  `password` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`tipo_doc`,`nro_doc`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `celular_UNIQUE` (`celular`),
   KEY `nro_doc_idx` (`nro_doc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -299,4 +302,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-24 13:16:56
+-- Dump completed on 2023-07-26 10:40:58
