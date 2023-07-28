@@ -136,8 +136,6 @@ public class MenuAsistentes {
 	
 	private void cargaDatos(Asistente a) {
 		
-		
-		
 		System.out.println("Tipo documento: ");
 		a.setTipo_doc(s.nextLine());
 		
@@ -164,7 +162,6 @@ public class MenuAsistentes {
 		
 		System.out.println("Contraseña: ");
 		a.setPassword(s.nextLine());
-		
 		
 	}
 
