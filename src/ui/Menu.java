@@ -37,8 +37,9 @@ public class Menu {
 			MenuAsistentes ma = new MenuAsistentes();
 			ma.start();
 			break;
-		case "find":
-			//System.out.println(find());
+		case "Fiestas":
+			MenuFiestas mf = new MenuFiestas();
+			mf.start();
 			break;
 		case "Bebidas":
 			MenuBebidas mb = new MenuBebidas();
