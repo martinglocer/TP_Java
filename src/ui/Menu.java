@@ -41,8 +41,8 @@ public class Menu {
 			MenuFiestas mf = new MenuFiestas();
 			mf.start();
 			break;
-		case "search":
-			System.out.println(getByUser());
+		case "Bebidas":
+			MenuBebidas mb = new MenuBebidas();
 			break;
 		case "new":
 			add();
