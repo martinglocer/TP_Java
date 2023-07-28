@@ -40,8 +40,8 @@ public class Menu {
 		case "find":
 			//System.out.println(find());
 			break;
-		case "search":
-			System.out.println(getByUser());
+		case "Bebidas":
+			MenuBebidas mb = new MenuBebidas();
 			break;
 		case "new":
 			add();
